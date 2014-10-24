@@ -9,6 +9,11 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
-}]);
+.controller('View1Ctrl', function($scope, Jobhunts) {
+    $scope.alljobhunts = Jobhunts.query();
+    $scope.idSelectedJob = null;
+    $scope.showSelectedElement = function(onejobhunt) {
+        $scope.selected = onejobhunt.companyId.companyName + " - " + onejobhunt.jobPositionId.jobPositionName;
+        $scope.idSelectedJob = onejobhunt.jobHuntId;
+    };
+});

@@ -1,1 +1,32 @@
-<p>This is the partial for view 1.</p>
+<p>Please enter filter: <input type="text" ng-model="customerFilter"</p>
+<p>Selected: {{selected}}</p>
+<table border="2">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Date Applied</th>
+            <th>Position Name</th>
+            <th>Status</th>
+            <th>Source</th>
+            <th>Contact Name</th>
+            <th>Contact Email</th>
+            <th>Contact Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="onejobhunt in alljobhunts | filter:customerFilter"
+            ng-click="showSelectedElement(onejobhunt)"
+            ng-class="{selected: onejobhunt.jobHuntId === idSelectedJob}">
+            <td>{{onejobhunt.companyId.companyName}}</td>
+            <td>{{onejobhunt.dateApplied}}</td>
+            <td>{{onejobhunt.jobPositionId.jobPositionName}}</td>
+            <td>{{onejobhunt.jobStatusId.jobStatusName}}</td>
+            <td>{{onejobhunt.sourceId.sourceName}}</td>
+            <td>{{onejobhunt.contactId.contactName}}</td>
+            <td>{{onejobhunt.contactId.contactEmail}}</td>
+            <td>{{onejobhunt.contactId.contactPhone}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
